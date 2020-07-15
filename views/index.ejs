@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<% var holdInfoDate; %>
+<% var holdInfoState; %>
+<% var holdInfoTotalPositiveCases; %>
+<% var holdInfoTotalNegativeCases; %>
+<% var holdInfoCitizensHospitalized; %>
+<% var holdInfoCitizensICU; %>
+<% var holdInfoCitizensOnVentilator; %>
+<% var holdInfoCitizensDeaths; %>
+<% var holdInfoCitizensDeathsIncreaseToday; %>
+<head>
+    <meta charset="utf-8">
+    <title>State COVID Tracker</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+    <center>
+    <h1>COVID-19 State Cases Tracker</h1>
+        <p1>Enter a State (i.e. Illinois or IL) and click "See Information" to learn about the current COVID-19 Situation in your state.</p1>
+    </center>
+    <fieldset>
+        <form action="/" method="post">
+            <input name="city" type="text" class="ghost-input" placeholder="Enter a State (i.e. Illinois or IL)" required>
+            <input type="submit" class="ghost-button" value="See Information">
+        </form>
+        <center>
+        <h3><%= holdInfoDate %></h3>
+        </center>
+        <% if(!holdInfoState.includes(null)){ %>
+            <p><%= holdInfoState %></p>
+        <% } %>
+        <% if(!holdInfoTotalPositiveCases.includes(null)){ %>
+            <p><%= holdInfoTotalPositiveCases %></p>
+        <% } %>
+        <% if(!holdInfoTotalNegativeCases.includes(null)){ %>
+            <p><%= holdInfoTotalNegativeCases %></p>
+        <% } %>
+        <% if(!holdInfoCitizensHospitalized.includes(null)){ %>
+            <p><%= holdInfoCitizensHospitalized %></p>
+        <% } %>
+        <% if(!holdInfoCitizensICU.includes(null)){ %>
+            <p><%= holdInfoCitizensICU %></p>
+        <% } %>
+        <% if(!holdInfoCitizensOnVentilator.includes(null)){ %>
+            <p><%= holdInfoCitizensOnVentilator %></p>
+        <% } %>
+        <% if(!holdInfoCitizensDeaths.includes(null)){ %>
+            <p><%= holdInfoCitizensDeaths %></p>
+        <% } %>
+        <% if(!holdInfoCitizensDeathsIncreaseToday.includes(null)){ %>
+            <p><%= holdInfoCitizensDeathsIncreaseToday %></p>
+        <% } %>
+
+
+    </fieldset>
+
+</div>
+<center>
+<footer>Copyright <a href="https://rayaansiddiqi.com" target="_blank"><b>Rayaan Siddiqi</b></a> </footer>
+</center>
+</body>
+</html>

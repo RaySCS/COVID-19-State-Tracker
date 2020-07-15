@@ -52,7 +52,7 @@ app.post('/', function (req, res) {
             var yyyy = today.getFullYear();
 
             today = mm + '/' + dd + '/' + yyyy;
-            res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: "State: " + currentState['state'], holdInfoTotalPositiveCases: "Total Positive Cases: " + currentState['positive'], holdInfoTotalNegativeCases: "Total Negative Cases: " + currentState['negative'], holdInfoCitizensHospitalized: "Citizens Hospitalized Currently: " + currentState['hospitalizedCurrently'], holdInfoCitizensICU: "Citizens in ICU Currently: " + currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: "Citizens on Ventilator Currently : " + currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: "Confirmed Citizens Deaths: " + currentState['deathConfirmed'], holdInfoCitizensDeathsIncreaseToday: "Citizens Deaths Increase: " + currentState['deathIncrease'], error: null});
+            res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: currentState['state'], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], error: null});
 
         }
     });
@@ -74,9 +74,7 @@ app.post('/', function (req, res) {
 
 })
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
-})
+app.listen(process.env.PORT || 4000)
 
 // var indexInJSON = -1;
 // function getInfo(res){

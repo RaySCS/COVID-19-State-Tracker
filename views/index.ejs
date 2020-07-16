@@ -26,7 +26,9 @@
             <input name="city" type="text" class="ghost-input" placeholder="Enter a State (i.e. Illinois or IL)" required>
             <input type="submit" class="ghost-button" value="See Information">
         </form>
+        <center>
         <h3><%= holdInfoDate %></h3>
+        </center>
         <% if(holdInfoState != null){ %>
             <p>State:  <%= holdInfoState %></p>
         <% } %>
@@ -55,9 +57,59 @@
 
     </fieldset>
 
+    <button style="text-align: center" type="button" class="collapsible">FAQ</button>
+    <div class="content">
+        <p>
+        <ul>
+            <li><b>1. </b>Why Did I Make This?
+                <ul>
+                    There are many resources online where you can dig for the information my tracker displays, however, it takes up much more valuable time. Hence, I made this state tracker to get quick facts regarding the COVID-19 situation in your state.
+                </ul>
+            </li>
+            <li><b>2. </b>How Many States Are Supported?
+                <ul>
+                    56 U.S. States (Including Territories like the American Samoa)
+                </ul>
+            </li>
+            <li><b>3. </b>How Was This Built?
+                <ul>
+                    I used Node.js for the backend along with a COVID-19 up to date API, and HTML/CSS/Additional Javascript.
+                </ul>
+            </li>
+            <li><b>4. </b>What is the Future of this Web App?
+                <ul>
+                    In the future, I plan on implementing a way to see information on countries and states, together.
+                </ul>
+            </li>
+            <li><b>5. </b>Is this a Free Service?
+                <ul>
+                    YES! I plan on keeping this service free as it is a helpful tool in today's society!
+                </ul>
+            </li>
+
+        </ul>
+        </p>
+    </div>
 </div>
 <center>
+    <br>
 <footer>©Copyright <a href="https://rayaansiddiqi.com" target="_blank"><b>Rayaan Siddiqi</b></a> </footer>
 </center>
 </body>
 </html>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>

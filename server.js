@@ -52,7 +52,7 @@ app.post('/', function (req, res) {
             var yyyy = today.getFullYear();
 
             today = mm + '/' + dd + '/' + yyyy;
-            res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: currentState['state'], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], error: null});
+            res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: allUSStatesSpelledOutArray[indexInJSON], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], error: null});
 
         }
     });

@@ -13,14 +13,19 @@
 <head>
     <meta charset="utf-8">
     <title>State COVID Tracker</title>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/favicon.png" rel="apple-touch-icon">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172831212-1"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/9b847e0830.js"></script>
+    <script src="https://kit.fontawesome.com/bdb4092220.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
     <center>
+<!--        <img src="/img/favicon.png" alt="Nature" class="responsive" width="300" height="200">-->
         <h1>COVID-19 State Cases Tracker</h1>
         <p1>Enter a State (i.e. Illinois or IL) and click "See Information" to learn about the current COVID-19 Situation in your state.</p1>
     </center>
@@ -115,8 +120,10 @@
 
 
     </fieldset>
-
-    <button style="text-align: center" type="button" class="collapsible"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> FAQ <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+    <button onclick="displayIFRAME()" style="text-align: center" type="button" class="collapsible"><i class="fas fa-robot"></i> COVID-19 State Tracker Assistant <i class="fas fa-robot"></i></button>
+    <br><br>
+    <div id="iFrameDisplay"></div>
+    <button style="text-align: center" type="button" class="collapsible"><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ <i class="fa fa-question-circle" aria-hidden="true"></i></button>
     <div class="content">
         <p>
         <ul>
@@ -135,12 +142,17 @@
                     I used Node.js for the backend along with a COVID-19 up to date API, and HTML/CSS/Additional Javascript.
                 </ul>
             </li>
-            <li><b>4. </b>What is the Future of this Web App?
+            <li><b>4. </b>What can do the IBM Watsom Bot Do?
+                <ul>
+                    You can chat with the IBM Watson bot which has been equipped with the skill to respond to any of your concerns/questions regarding COVID-19.
+                </ul>
+            </li>
+            <li><b>5. </b>What is the Future of this Web App?
                 <ul>
                     In the future, I plan on implementing a way to see information on countries and states, together.
                 </ul>
             </li>
-            <li><b>5. </b>Is this a Free Service?
+            <li><b>6. </b>Is this a Free Service?
                 <ul>
                     YES! I plan on keeping this service free as it is a helpful tool in today's society!
                 </ul>
@@ -178,5 +190,19 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-172831212-1');
+
+    var counter = 0;
+
+    function displayIFRAME() {
+        counter++;
+        if(counter % 2 ==0){
+            document.getElementById("iFrameDisplay").innerHTML = "";
+        }
+        else{
+            document.getElementById("iFrameDisplay").innerHTML = "<iframe src=\"https://web-chat.global.assistant.watson.cloud.ibm.com/preview.html?region=us-south&integrationID=01dd5440-f83f-49bb-bb76-4439dc8ce496&serviceInstanceID=f80883d9-01bc-4e2f-8cc5-59d9d8ed5827\" width=\"100%\" height=\"500\">\n" +
+                "</iframe> <br><br>"
+        }
+
+    }
 
 </script>

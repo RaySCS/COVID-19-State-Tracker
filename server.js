@@ -31,7 +31,7 @@ app.post('/', function (req, res) {
 
     request(url, function (err, response, body) {
         if(err){
-            res.render('index', {weather: null, error: 'Error, please try again'});
+            res.render('index', {holdInfoState: null, error: 'Error, please try again'});
         } else {
             let allStatesJSON = JSON.parse(body)
             console.log(allStatesJSON)
@@ -41,18 +41,25 @@ app.post('/', function (req, res) {
                     indexInJSON = x;
                 }
             }
-            console.log("the latest state")
-            console.log(allStatesJSON[indexInJSON])
-            var currentState = allStatesJSON[indexInJSON]
+            if(indexInJSON != -1){
+                console.log("the latest state")
+                console.log(allStatesJSON[indexInJSON])
+                var currentState = allStatesJSON[indexInJSON]
 
-            //all setting the ejs below
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
+                //all setting the ejs below
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
 
-            today = mm + '/' + dd + '/' + yyyy;
-            res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: allUSStatesSpelledOutArray[indexInJSON], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], error: null});
+                today = mm + '/' + dd + '/' + yyyy;
+                res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: allUSStatesSpelledOutArray[indexInJSON], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], error: null});
+
+            }
+            else{
+                res.render('index', {holdInfoErrorState: 'Please Input a State Name', error: null});
+
+            }
 
         }
     });

@@ -6,7 +6,7 @@ Throughout the past 3 months, there has been a lot of different information rega
 This Project is being submitted to <a href = "https://charterhacks.devpost.com" target = "_blank">CharterHacks</a>
 
 # Important Links
-* <a href = "https://dashboard.heroku.com/apps/covid19-state-tracker">Check the site in action</a>
+* <a href = "https://covid19-state-tracker.herokuapp.com">Check the site in action</a>
 * Watch the demonstration video
 * See the submission on Devpost
 

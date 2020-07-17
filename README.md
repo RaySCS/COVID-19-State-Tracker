@@ -26,7 +26,7 @@ For the backend I used Node.js as my script and connected it with my middleware 
 ### Deploying
 In order to deploy my site and make it accessible for other users to use, I deployed my web app using Heroku.
 
-# Challenged I Ran Into
+# Challenges I Ran Into
 One of the largest challenges I faced was connecting the EJS (Embedded Javascript) to the JavaScript file I was running off of my server. However, after a couple hours, I figured out how to correctly mainpulate the index file through sending a response from my server.
 
 # Audience of My Web App

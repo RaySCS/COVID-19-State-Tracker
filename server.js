@@ -27,7 +27,14 @@ app.post('/', function (req, res) {
     console.log(req.body.city);
     userInp = req.body.city;
 
-    let url = `https://covidtracking.com/api/states`
+
+
+
+
+    let url = `https://covidtracking.com/api/states`;
+
+
+
 
     request(url, function (err, response, body) {
         if(err){
@@ -42,18 +49,37 @@ app.post('/', function (req, res) {
                 }
             }
             if(indexInJSON != -1){
-                console.log("the latest state")
-                console.log(allStatesJSON[indexInJSON])
-                var currentState = allStatesJSON[indexInJSON]
+                var stateName = allUSStatesSpelledOutArray[indexInJSON];
+                var url2 = 'http://newsapi.org/v2/everything?' +
+                    'q=' + stateName + '+COVID&' +
+                    // 'from=2020-07-10&' +
+                    // 'sortBy=popularity&' +
+                    'apiKey=27238894124f40a7a6345150081ebd1f';
 
-                //all setting the ejs below
-                var today = new Date();
-                var dd = String(today.getDate()).padStart(2, '0');
-                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                var yyyy = today.getFullYear();
+                request(url2, function (err, response, body2) {
+                    if(err) {
+                        res.render('index', {holdInfoState: null, error: 'Error, please try again'});
+                    }
+                    else{
+                        console.log("Indiciation News");
+                        let allStateNewsJSON = JSON.parse(body2);
+                        var articlesJSON = allStateNewsJSON['articles'];
 
-                today = mm + '/' + dd + '/' + yyyy;
-                res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: allUSStatesSpelledOutArray[indexInJSON], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensPositiveIncreaseToday: currentState['positiveIncrease'], holdInfoCitizensNegativeIncreaseToday: currentState['negativeIncrease'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], error: null});
+                        console.log("the latest state")
+                        console.log(allStatesJSON[indexInJSON])
+                        var currentState = allStatesJSON[indexInJSON]
+                        //all setting the ejs below
+                        var today = new Date();
+                        var dd = String(today.getDate()).padStart(2, '0');
+                        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                        var yyyy = today.getFullYear();
+
+                        today = mm + '/' + dd + '/' + yyyy;
+                        res.render('index', {holdInfoDate: "Information As of " + today, holdInfoState: allUSStatesSpelledOutArray[indexInJSON], holdInfoTotalPositiveCases: currentState['positive'], holdInfoTotalNegativeCases: currentState['negative'], holdInfoCitizensHospitalized: currentState['hospitalizedCurrently'], holdInfoCitizensICU: currentState['inIcuCurrently'], holdInfoCitizensOnVentilator: currentState['onVentilatorCurrently'], holdInfoCitizensDeaths: currentState['deathConfirmed'], holdInfoCitizensPositiveIncreaseToday: currentState['positiveIncrease'], holdInfoCitizensNegativeIncreaseToday: currentState['negativeIncrease'], holdInfoCitizensDeathsIncreaseToday: currentState['deathIncrease'], holdInfoArticle1Title: articlesJSON[0]['title'], holdInfoArticle1Description: articlesJSON[0]['description'], holdInfoArticle1URL: articlesJSON[0]['url'], holdInfoArticle2Title: articlesJSON[1]['title'], holdInfoArticle2Description: articlesJSON[1]['description'], holdInfoArticle2URL: articlesJSON[1]['url'], holdInfoArticle3Title: articlesJSON[2]['title'], holdInfoArticle3Description: articlesJSON[2]['description'], holdInfoArticle3URL: articlesJSON[2]['url'], error: null});
+
+                    }
+
+                });
             }
             else{
                 res.render('index', {holdInfoErrorState: 'Please Input a State Name', error: null});

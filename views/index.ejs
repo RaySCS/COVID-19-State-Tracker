@@ -12,6 +12,15 @@
 <% var holdInfoCitizensPositiveIncreaseToday; %>
 <% var holdInfoCitizensNegativeIncreaseToday; %>
 <% var holdInfoCitizensDeathsIncreaseToday; %>
+<% var holdInfoArticle1Title; %>
+<% var holdInfoArticle1Description; %>
+<% var holdInfoArticle1URL; %>
+<% var holdInfoArticle2Title; %>
+<% var holdInfoArticle2Description; %>
+<% var holdInfoArticle2URL; %>
+<% var holdInfoArticle3Title; %>
+<% var holdInfoArticle3Description; %>
+<% var holdInfoArticle3URL; %>
 <head>
     <meta charset="utf-8">
     <title>State COVID Tracker</title>
@@ -132,6 +141,66 @@
     <button onclick="displayIFRAME()" style="text-align: center" type="button" class="collapsible"><i class="fas fa-robot"></i> COVID-19 State Tracker Assistant <i class="fas fa-robot"></i></button>
     <br><br>
     <div id="iFrameDisplay"></div>
+
+    <button style="text-align: center" type="button" class="collapsible"><i class="fa fa-newspaper" aria-hidden="true"></i> Latest COVID-19 News <i class="fa fa-newspaper" aria-hidden="true"></i></button>
+    <div class="content">
+        <center>
+            <% if(holdInfoState != null){ %>
+                <p>COVID-19 News in <%= holdInfoState %></p>
+            <% } %>
+        </center>
+        <ul>
+            <li><b>1. </b>
+                <% if(holdInfoArticle1Title != null){ %>
+                    <%= holdInfoArticle1Title %>
+                <% } %>
+                <ul>
+                    <% if(holdInfoArticle1Description != null){ %>
+                        <b>Description: </b><%= holdInfoArticle1Description %>
+                    <% } %>
+                </ul>
+                <ul>
+                    <% if(holdInfoArticle1URL != null){ %>
+                        <a href=<%= holdInfoArticle1URL %>>Read More</a>
+                    <% } %>
+                </ul>
+
+            </li>
+            <li><b>2. </b>
+                <% if(holdInfoArticle2Title != null){ %>
+                    <%= holdInfoArticle2Title %>
+                <% } %>
+                <ul>
+                    <% if(holdInfoArticle2Description != null){ %>
+                        <b>Description: </b><%= holdInfoArticle2Description %>
+                    <% } %>
+                </ul>
+                <ul>
+                    <% if(holdInfoArticle2URL != null){ %>
+                        <a href=<%= holdInfoArticle2URL %>>Read More</a>
+                    <% } %>
+                </ul>
+            </li>
+            <li><b>3. </b>
+                <% if(holdInfoArticle3Title != null){ %>
+                    <%= holdInfoArticle3Title %>
+                <% } %>
+                <ul>
+                    <% if(holdInfoArticle3Description != null){ %>
+                        <b>Description: </b><%= holdInfoArticle3Description %>
+                    <% } %>
+                </ul>
+                <ul>
+                    <% if(holdInfoArticle3URL != null){ %>
+                        <a href=<%= holdInfoArticle3URL %>>Read More</a>
+                    <% } %>
+                </ul>
+            </li>
+
+        </ul>
+        <!--        </p>-->
+    </div>
+    <br>
     <button style="text-align: center" type="button" class="collapsible"><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ <i class="fa fa-question-circle" aria-hidden="true"></i></button>
     <div class="content">
         <p>

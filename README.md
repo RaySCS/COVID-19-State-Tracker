@@ -35,5 +35,5 @@ I envision the audience of my web app to be healthcare workers/constituents in o
 # Accomplishments I am Proud Of
 I was able to make this full stack web app all from scratch and without using any pre-made projects. Furthermore, I believe the simplistic yet effective UI is key in order to bring more of a larger audience.
 
-# Authors
+# Author
 * <a href = "https://rayaansiddiqi.com">Rayaan Siddiqi</a>

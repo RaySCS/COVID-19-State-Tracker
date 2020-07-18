@@ -1,7 +1,7 @@
 # COVID-19-State-Tracker: All the information regarding COVID-19 in your state in one place!
 ![alt text](mainscr.png)
 ### Project Details
-Throughout the past 3 months, there has been a lot of different information regarding COVID-19 spreading through news media outlets. That was until now, with the COVID-19 State Tracker, one can easily find out important pieces of information regarding the COVID-19 Situation in their respectice state whilist being able to chat with an IBM Watson Bot with any questions/concerns they may have and browse through important news regarding COIVD-19 in their state.
+Throughout the past 3 months, there has been a lot of different information regarding COVID-19 spreading through news media outlets. That was until now, with the COVID-19 State Tracker, one can easily find out important pieces of information regarding the COVID-19 Situation in their respective state whilst being able to chat with an IBM Watson Bot with any questions/concerns they may have and browse through important news regarding COIVD-19 in their state.
 
 ### Hackathon
 This Project is being submitted to <a href = "https://charterhacks.devpost.com" target = "_blank">CharterHacks</a>
@@ -31,7 +31,7 @@ In order to deploy my site and make it accessible for other users to use, I depl
 One of the largest challenges I faced was connecting the EJS (Embedded Javascript) to the JavaScript file I was running off of my server. However, after a couple hours, I figured out how to correctly mainpulate the index file through sending a response from my server.
 
 # Audience of My Web App
-I envision the audience of my web app to be healthcare workers/constituents in our society who are looking to find conscise statistics regarding the COVID-19 Situation in their respective states without having to scour the internet. Instead, I believe my web app can help our society in the terms of centralizing a place for reliable data. 
+I envision the audience of my web app to be healthcare workers/constituents in our society who are looking to find concise statistics regarding the COVID-19 Situation in their respective states without having to scour the internet. Instead, I believe my web app can help our society in the terms of centralizing a place for reliable data. 
 
 # Accomplishments I am Proud Of
 I was able to make this full stack web app all from scratch and without using any pre-made projects. Furthermore, I believe the simplistic yet effective UI is key in order to bring more of a larger audience.

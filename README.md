@@ -8,8 +8,8 @@ This Project is being submitted to <a href = "https://charterhacks.devpost.com" 
 
 # Important Links
 * <a href = "https://covid19-state-tracker.herokuapp.com">Check the site in action</a>
-* Watch the demonstration video
-* See the submission on Devpost
+* <a href = "https://www.youtube.com/watch?v=-E_r3FGBBmk&feature=emb_logo">Watch the demonstration video</a>
+* <a href = "https://devpost.com/software/covid-19-state-tracker">See the submission on Devpost</a>
 
 # Technologies Utilized
 * HTML/CSS
